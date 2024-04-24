@@ -6,7 +6,7 @@ namespace Teleroute.Tests.Match
     public class MatchCmdTest
     {
         [Test]
-        public void MatchWhenCommand()
+        public void Match_Command_ReturnsTrue()
         {
             Assert.That(
                 new MatchCmd<string>()
@@ -15,7 +15,7 @@ namespace Teleroute.Tests.Match
         }
 
         [Test]
-        public void NotMatchWhenNotCommand()
+        public void Match_NotCommand_ReturnsFalse()
         {
             Assert.That(
                 new MatchCmd<string>()

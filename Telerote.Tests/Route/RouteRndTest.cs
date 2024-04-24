@@ -21,7 +21,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteAnyWhenManyCmdSpecified()
+        public void Route_ManyCmdSpecified_ReturnsAny()
         {
             Assert.That(commands,
                 Does.Contain(
@@ -32,7 +32,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteAnyWhenManyRouteSpecified()
+        public void Route_ManyRouteSpecified_ReturnsAny()
         {
             Assert.That(commands,
                 Does.Contain(
@@ -45,7 +45,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteWhenOneRouteSpecified()
+        public void Route_OneRouteSpecified_ReturnsSingle()
         {
             Assert.That(
                 new RouteRnd<string, FkClient>(
@@ -55,7 +55,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteWhenOneCmdSpecified()
+        public void Route_OneCmdSpecified_ReturnsSingle()
         {
             Assert.That(
                 new RouteRnd<string, FkClient>(new FkCmd())

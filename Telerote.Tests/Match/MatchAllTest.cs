@@ -6,7 +6,7 @@ namespace Teleroute.Tests.Match
     public class MatchAllTest
     {
         [Test]
-        public void MatchWhenAllMatch()
+        public void Match_AllMatch_ReturnsTrue()
         {
             Assert.That(
                 new MatchAll<string>(
@@ -17,7 +17,7 @@ namespace Teleroute.Tests.Match
         }
 
         [Test]
-        public void NotMatchWhenNoOneMatch()
+        public void Match_NoOneMatch_ReturnsFalse()
         {
             Assert.That(
                 new MatchAll<string>(
@@ -28,7 +28,7 @@ namespace Teleroute.Tests.Match
         }
 
         [Test]
-        public void NotMatchWhenNotAllMatch()
+        public void Match_NotAllMatch_ReturnsFalse()
         {
             Assert.That(
                 new MatchAll<string>(
@@ -39,7 +39,7 @@ namespace Teleroute.Tests.Match
         }
 
         [Test]
-        public void MatchWhenNoCondition()
+        public void Match_NoCondition_ReturnsTrue()
         {
             Assert.That(
                 new MatchAll<string>()

@@ -13,7 +13,7 @@ namespace Teleroute.Tests.Send
         }
 
         [Test]
-        public void SentOneWhenSubmittedOneSend()
+        public void Send_SubmittedOneSend_SentOne()
         {
             new SendBatch<FkClient>(new FkSend("test"))
                 .Send(client);
@@ -25,7 +25,7 @@ namespace Teleroute.Tests.Send
         }
 
         [Test]
-        public void SentManyWhenSubmittedMany()
+        public void Send_SubmittedManySend_SentMany()
         {
             new SendBatch<FkClient>(
                 new FkSend("test1"),
@@ -40,7 +40,7 @@ namespace Teleroute.Tests.Send
         }
 
         [Test]
-        public void NothingSentWhenError()
+        public void Send_ErrorSend_SentNothing()
         {
             new SendBatch<FkClient>(new FkSendError()).Send(client);
 
@@ -51,7 +51,7 @@ namespace Teleroute.Tests.Send
         }
 
         [Test]
-        public void SentOneWhenOtherError()
+        public void Send_OneSendAndOtherErrorSend_SentOne()
         {
             new SendBatch<FkClient>(
                 new FkSend("test"),

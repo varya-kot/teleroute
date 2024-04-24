@@ -8,7 +8,7 @@ namespace Teleroute.Tests.Route
     public class RouteEndTest
     {
         [Test]
-        public void EmptyWhenNoCommandSpecified()
+        public void Route_NoCmdSpecified_ReturnsEmpty()
         {
             Assert.That(
                new RouteEnd<string, FkClient>()
@@ -17,7 +17,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void ReturnCmdWhenCmdSpecified()
+        public void Route_CmdSpecified_ReturnsCmd()
         {
             Assert.That(
                new RouteEnd<string, FkClient>(

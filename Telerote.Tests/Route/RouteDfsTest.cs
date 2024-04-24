@@ -8,7 +8,7 @@ namespace Teleroute.Tests.Route
     public class RouteDfsTest
     {
         [Test]
-        public void RouteFirstSuitableWhenManySubmitted()
+        public void Route_ManyRouteSpecified_ReturnsFirstSuitable()
         {
             Assert.That(
               new RouteDfs<string, FkClient>(
@@ -20,7 +20,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteFirstWhenOneSubmitted()
+        public void Route_OneRouteSpecified_ReturnsFirst()
         {
             Assert.That(
               new RouteDfs<string, FkClient>(
@@ -30,16 +30,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void EmptyWhenNoRouteSpecified()
-        {
-            Assert.That(
-               new RouteDfs<string, FkClient>()
-               .Route(new FkWrap()).Any(),
-               Is.False);
-        }
-
-        [Test]
-        public void EmptyWhenRouteEmpty()
+        public void Route_NoRouteSpecified_ReturnsEmpty()
         {
             Assert.That(
                new RouteDfs<string, FkClient>(

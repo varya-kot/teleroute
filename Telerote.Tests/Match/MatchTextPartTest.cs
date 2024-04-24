@@ -6,7 +6,7 @@ namespace Teleroute.Tests.Match
     public class MatchTextPartTest
     {
         [Test]
-        public void MatchWhenFullTextMatch()
+        public void Match_FullTextMatch_ReturnsTrue()
         {
             Assert.That(
                 new MatchTextPart<string>("test")
@@ -15,7 +15,7 @@ namespace Teleroute.Tests.Match
         }
 
         [Test]
-        public void MatchWhenTextOccurs()
+        public void Match_TextOccurs_ReturnsTrue()
         {
             Assert.That(
                 new MatchTextPart<string>("te")
@@ -24,7 +24,7 @@ namespace Teleroute.Tests.Match
         }
 
         [Test]
-        public void NotMatchWhenTextNotOccurs()
+        public void Match_TextNotOccurs_ReturnsFalse()
         {
             Assert.That(
                 new MatchTextPart<string>("no")

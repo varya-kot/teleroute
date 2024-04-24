@@ -6,7 +6,7 @@ namespace Teleroute.Tests.Match
     public class MatchTextExactTest
     {
         [Test]
-        public void MatchWhenFullTextMatch()
+        public void Match_FullTextMatch_ReturnsTrue()
         {
             Assert.That(
                 new MatchTextExact<string>("test")
@@ -15,7 +15,7 @@ namespace Teleroute.Tests.Match
         }
 
         [Test]
-        public void NotMatchWhenFullTextNotMatch()
+        public void Match_NotFullTextMatch_ReturnsFalse()
         {
             Assert.That(
                 new MatchTextExact<string>("test")

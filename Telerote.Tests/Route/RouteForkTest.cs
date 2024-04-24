@@ -9,7 +9,7 @@ namespace Teleroute.Tests.Route
     public class RouteForkTest
     {
         [Test]
-        public void RouteOriginCmdWhenMatchAndNoSpareCmd()
+        public void Route_MatchAndNoSpareCmd_ReturnsOrigin()
         {
             Assert.That(
                 new RouteFork<string, FkClient>(
@@ -20,7 +20,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteEmptyWhenNotMatchAndNoSpareCmd()
+        public void Route_NotMatchAndNoSpareCmd_ReturnsEmpty()
         {
             Assert.That(
                 new RouteFork<string, FkClient>(
@@ -31,7 +31,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteOriginCmdWhenMatch()
+        public void Route_MatchAndSpareCmd_ReturnsOrigin()
         {
             Assert.That(
                 new RouteFork<string, FkClient>(
@@ -43,7 +43,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteSpareCmdWhenNotMatch()
+        public void Route_NotMatchAndSpareCmd_ReturnsSpare()
         {
             Assert.That(
                 new RouteFork<string, FkClient>(
@@ -55,7 +55,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteOriginWhenMatchAndNoSpareRoute()
+        public void Route_MatchAndNoSpareRoute_ReturnsOrigin()
         {
             Assert.That(
                 new RouteFork<string, FkClient>(
@@ -66,7 +66,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteEmptyWhenNotMatchAndNoSpareRoute()
+        public void Route_NotMatchAndNoSpareRoute_ReturnsEmpty()
         {
             Assert.That(
                 new RouteFork<string, FkClient>(
@@ -77,7 +77,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteOriginWhenMatch()
+        public void Route_MatchAndSpareRoute_ReturnsOrigin()
         {
             Assert.That(
                 new RouteFork<string, FkClient>(
@@ -91,7 +91,7 @@ namespace Teleroute.Tests.Route
         }
 
         [Test]
-        public void RouteSpareWhenNotMatch()
+        public void Route_NotMatchAndSpareRoute_ReturnsSpare()
         {
             Assert.That(
                 new RouteFork<string, FkClient>(

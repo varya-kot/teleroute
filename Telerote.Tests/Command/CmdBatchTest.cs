@@ -6,7 +6,7 @@ namespace Teleroute.Tests.Command
     public class CmdBatchTest
     {
         [Test]
-        public void NoSendWhenError()
+        public void Execute_ErrorCmd_ReturnsEmpty()
         {
             Assert.That(
                 new CmdBatch<string, FkClient>(
@@ -16,7 +16,7 @@ namespace Teleroute.Tests.Command
         }
 
         [Test]
-        public void SendOneWhenSubmittedOne()
+        public void Execute_SubmittedCmd_ReturnsSend()
         {
             Assert.That(
                 new CmdBatch<string, FkClient>(
