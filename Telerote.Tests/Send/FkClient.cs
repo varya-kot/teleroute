@@ -1,30 +1,59 @@
-﻿using System.Collections.ObjectModel;
+﻿// MIT License
+//
+// Copyright (c) 2024 Varvara Getmanskaya
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
-namespace Teleroute.Tests.Send
+using System.Collections.ObjectModel;
+
+namespace Teleroute.Tests.Send;
+
+/// <summary>
+/// Fake Telegram client.
+/// </summary>
+public sealed class FkClient
 {
-    public sealed class FkClient
+    private readonly IList<string> response;
+
+    public FkClient()
+        : this(new List<string>(1)) { }
+
+    private FkClient(IList<string> responce)
     {
-        private readonly IList<string> response;
+        response = responce;
+    }
 
-        public FkClient()
-            : this(new List<string>(1)) { }
+    /// <summary>
+    /// Submit content to Telegram client.
+    /// </summary>
+    /// <param name="message">Content</param>
+    public void Submit(string message)
+    {
+        response.Add(message);
+    }
 
-        //public FkClient(string message)
-        //    : this(new List<string> { message }) { }
-
-        private FkClient(IList<string> responce)
-        {
-            this.response = responce;
-        }
-
-        public void Submit(string message)
-        {
-            this.response.Add(message);
-        }
-
-        public IList<string> Sent()
-        {
-            return new ReadOnlyCollection<string>(response);
-        }
+    /// <summary>
+    /// Retrieve Telegram sent contents.
+    /// </summary>
+    /// <returns>Sent content</returns>
+    public IEnumerable<string> Sent()
+    {
+        return new ReadOnlyCollection<string>(response);
     }
 }
