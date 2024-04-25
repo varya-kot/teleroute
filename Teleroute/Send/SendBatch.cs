@@ -72,6 +72,7 @@ namespace Teleroute.Send
         public void Send(C client)
         {
             foreach (ISend<C> send in sends)
+            {
                 try
                 {
                     send.Send(client);
@@ -81,6 +82,7 @@ namespace Teleroute.Send
                     //todo logger
                     Console.WriteLine(ex.ToString());
                 }
+            }
         }
     }
 }

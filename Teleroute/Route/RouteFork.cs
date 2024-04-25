@@ -118,9 +118,16 @@ namespace Teleroute.Route
 
         public IEnumerable<ICmd<U, C>> Route(IWrap<U> update)
         {
+            IEnumerable<ICmd<U, C>> command;
             if (match.Match(update))
-                return origin.Route(update);
-            return spare.Route(update);
+            {
+                command = origin.Route(update);
+            }
+            else
+            {
+                command = spare.Route(update);
+            }
+            return command;
         }
     }
 }

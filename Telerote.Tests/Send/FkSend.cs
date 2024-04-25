@@ -44,7 +44,10 @@ public sealed class FkSend : ISend<FkClient>
 
     public void Send(FkClient client)
     {
-        foreach (string item in response) client.Submit(item);
+        foreach (string item in response)
+        {
+            client.Submit(item);
+        }
     }
 
     public override bool Equals(object? obj)

@@ -74,9 +74,16 @@ namespace Teleroute.Command
         public IEnumerable<ISend<C>> Execute(U update)
         {
             List<ISend<C>> sends = ExecuteCmds(update).ToList();
+            IEnumerable<ISend<C>> send;
             if (sends.Any())
-                return new List<SendBatch<C>>(1) { new SendBatch<C>(sends) };
-            return Enumerable.Empty<ISend<C>>();
+            {
+                send = new List<SendBatch<C>>(1) { new SendBatch<C>(sends) };
+            }
+            else
+            {
+                send = Enumerable.Empty<ISend<C>>();
+            }
+            return send;
         }
 
         private IEnumerable<ISend<C>> ExecuteCmds(U update)

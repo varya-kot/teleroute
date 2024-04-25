@@ -56,14 +56,16 @@ namespace Teleroute.Command
 
         public IEnumerable<ISend<C>> Execute(U update)
         {
+            IEnumerable<ISend<C>> send;
             try
             {
-                return origin.Execute(update);
+                send = origin.Execute(update);
             }
             catch (Exception)
             {
-                return spare.Execute(update);
+                send = spare.Execute(update);
             }
+            return send;
         }
     }
 }
