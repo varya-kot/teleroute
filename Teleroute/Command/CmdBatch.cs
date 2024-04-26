@@ -91,18 +91,20 @@ namespace Teleroute.Command
             return commands.Select(
                 c =>
                 {
+                    IEnumerable<ISend<C>> sends;
                     try
                     {
-                        return c.Execute(update);
+                        sends = c.Execute(update);
                     }
                     catch (Exception ex)
                     {
                         //todo logger
                         Console.WriteLine(ex.ToString());
-                        return Enumerable.Empty<ISend<C>>();
+                        sends = Enumerable.Empty<ISend<C>>();
                     }
+                    return sends;
                 }
-            ).Where(s => s.Any()).SelectMany(c => c);
+            ).SelectMany(c => c);
         }
     }
 }
