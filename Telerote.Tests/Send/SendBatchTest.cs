@@ -45,8 +45,7 @@ public class SendBatchTest
 
         Assert.That(
             client.Sent(),
-            Is.EqualTo(new List<string> { "test" })
-        );
+            Is.EqualTo(new List<string> { "test" }));
     }
 
     [Test]
@@ -55,13 +54,12 @@ public class SendBatchTest
         new SendBatch<FkClient>(
             new FkSend("test1"),
             new FkSend("test2"),
-            new FkSend("test3")
-        ).Send(client);
+            new FkSend("test3"))
+        .Send(client);
 
         Assert.That(
             client.Sent(),
-            Is.EqualTo(new List<string> { "test1", "test2", "test3" })
-        );
+            Is.EqualTo(new List<string> { "test1", "test2", "test3" }));
     }
 
     [Test]
@@ -71,8 +69,7 @@ public class SendBatchTest
 
         Assert.That(
             client.Sent(),
-            Is.EqualTo(new List<string>())
-        );
+            Is.EqualTo(new List<string>()));
     }
 
     [Test]
@@ -81,12 +78,11 @@ public class SendBatchTest
         new SendBatch<FkClient>(
             new FkSend("test"),
             new FkSendError(),
-            new FkSendError()
-        ).Send(client);
+            new FkSendError())
+        .Send(client);
 
         Assert.That(
             client.Sent(),
-            Is.EqualTo(new List<string> { "test" })
-        );
+            Is.EqualTo(new List<string> { "test" }));
     }
 }

@@ -65,6 +65,7 @@ namespace Teleroute.Command
             {
                 send = spare.Execute(update);
             }
+            
             return send;
         }
     }

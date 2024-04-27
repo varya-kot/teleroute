@@ -53,10 +53,8 @@ public class RouteRndTest
             Does.Contain(
                 new RouteRnd<string, FkClient>(
                     new FkCmd(),
-                    new FkCmd(new FkSend("test"))
-                ).Route(new FkWrap()).Single()
-            )
-        );
+                    new FkCmd(new FkSend("test")))
+                .Route(new FkWrap()).Single()));
     }
 
     [Test]
@@ -68,11 +66,8 @@ public class RouteRndTest
                 new RouteRnd<string, FkClient>(
                     new RouteEnd<string, FkClient>(new FkCmd()),
                     new RouteEnd<string, FkClient>(
-                        new FkCmd(new FkSend("test"))
-                    )
-                ).Route(new FkWrap()).Single()
-            )
-        );
+                        new FkCmd(new FkSend("test"))))
+                .Route(new FkWrap()).Single()));
     }
 
     [Test]
@@ -80,10 +75,9 @@ public class RouteRndTest
     {
         Assert.That(
             new RouteRnd<string, FkClient>(
-                new RouteEnd<string, FkClient>(new FkCmd())
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd())
-        );
+                new RouteEnd<string, FkClient>(new FkCmd()))
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd()));
     }
 
     [Test]
@@ -92,7 +86,6 @@ public class RouteRndTest
         Assert.That(
             new RouteRnd<string, FkClient>(new FkCmd())
                 .Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd())
-        );
+            Is.EqualTo(new FkCmd()));
     }
 }

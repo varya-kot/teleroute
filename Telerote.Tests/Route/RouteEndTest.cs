@@ -38,8 +38,7 @@ public class RouteEndTest
         Assert.That(
             new RouteEnd<string, FkClient>()
                 .Route(new FkWrap()).Any(),
-            Is.False
-        );
+            Is.False);
     }
 
     [Test]
@@ -47,10 +46,8 @@ public class RouteEndTest
     {
         Assert.That(
             new RouteEnd<string, FkClient>(
-                    new FkCmd()
-                )
+                    new FkCmd())
                 .Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd())
-        );
+            Is.EqualTo(new FkCmd()));
     }
 }

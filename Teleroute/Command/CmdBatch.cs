@@ -83,6 +83,7 @@ namespace Teleroute.Command
             {
                 send = Enumerable.Empty<ISend<C>>();
             }
+
             return send;
         }
 
@@ -102,9 +103,9 @@ namespace Teleroute.Command
                         Console.WriteLine(ex.ToString());
                         sends = Enumerable.Empty<ISend<C>>();
                     }
+
                     return sends;
-                }
-            ).SelectMany(c => c);
+                }).SelectMany(c => c);
         }
     }
 }
