@@ -32,10 +32,14 @@ public sealed class FkSend : ISend<FkClient>
     private readonly IEnumerable<string> response;
 
     public FkSend()
-        : this(Enumerable.Empty<string>()) { }
+        : this(Enumerable.Empty<string>())
+    {
+    }
 
     public FkSend(string response)
-        : this(new List<string> { response }) { }
+        : this(new List<string> { response })
+    {
+    }
 
     private FkSend(IEnumerable<string> response)
     {

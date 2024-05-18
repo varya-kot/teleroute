@@ -34,6 +34,7 @@ namespace Teleroute.Match
         private readonly string text;
 
         /// <summary>
+        /// Match text.
         /// </summary>
         /// <param name="text">Text to match</param>
         public MatchTextExact(string text)
@@ -41,6 +42,7 @@ namespace Teleroute.Match
             this.text = text;
         }
 
+        /// <inheritdoc />
         public bool Match(IWrap<U> update)
         {
             return update.Text().Any(t => t.Equals(text));

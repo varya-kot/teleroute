@@ -47,7 +47,9 @@ namespace Teleroute.Send
         /// </summary>
         /// <param name="sends">Sends</param>
         public SendBatch(params ISend<C>[] sends)
-            : this(sends.ToList()) { }
+            : this(sends.ToList())
+        {
+        }
 
         /// <summary>
         /// <example>
@@ -69,6 +71,7 @@ namespace Teleroute.Send
             this.sends = sends;
         }
 
+        /// <inheritdoc />
         public void Send(C client)
         {
             foreach (ISend<C> send in sends)

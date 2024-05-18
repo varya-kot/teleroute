@@ -34,7 +34,9 @@ public sealed class FkWrap : IWrap<string>
     private readonly bool isCommand;
 
     public FkWrap()
-        : this(123, true, "text") { }
+        : this(123, true, "text")
+    {
+    }
 
     public FkWrap(int id, bool isCommand, string content)
     {

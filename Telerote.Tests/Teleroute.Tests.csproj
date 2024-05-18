@@ -9,6 +9,7 @@
         <IsTestProject>true</IsTestProject>
 
         <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
+        <NoWarn>1573,1591,1712,8618</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -34,6 +35,6 @@
 
     <ItemGroup>
         <Content Include="..\stylecop.ruleset" Link="stylecop.ruleset" />
-        <Content Include="..\stylecop.json" Link="stylecop.json" />
+        <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
     </ItemGroup>
 </Project>

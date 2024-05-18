@@ -57,7 +57,9 @@ namespace Teleroute.Route
         /// </summary>
         /// <param name="routes">Routes</param>
         public RouteDfs(params IRoute<U, C>[] routes)
-            : this(routes.ToList()) { }
+            : this(routes.ToList())
+        {
+        }
 
         /// <summary>
         /// <example>
@@ -78,6 +80,7 @@ namespace Teleroute.Route
             this.routes = routes;
         }
 
+        /// <inheritdoc />
         public IEnumerable<ICmd<U, C>> Route(IWrap<U> update)
         {
             return routes

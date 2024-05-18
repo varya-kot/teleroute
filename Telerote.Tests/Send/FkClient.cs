@@ -32,7 +32,9 @@ public sealed class FkClient
     private readonly IList<string> response;
 
     public FkClient()
-        : this(new List<string>(1)) { }
+        : this(new List<string>(1))
+    {
+    }
 
     private FkClient(IList<string> responce)
     {

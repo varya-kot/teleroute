@@ -47,7 +47,9 @@ namespace Teleroute.Match
         /// </summary>
         /// <param name="matches">Conditions</param>
         public MatchAny(params IMatch<U>[] matches)
-            : this(matches.ToList()) { }
+            : this(matches.ToList())
+        {
+        }
 
         /// <summary>
         /// <example>
@@ -69,6 +71,7 @@ namespace Teleroute.Match
             this.matches = matches;
         }
 
+        /// <inheritdoc />
         public bool Match(IWrap<U> update)
         {
             return !matches.Any() || matches.Any(m => m.Match(update));

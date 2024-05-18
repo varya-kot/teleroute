@@ -36,7 +36,7 @@ public sealed class FkMatch : IMatch<string>
     {
         this.match = match;
     }
-
+    
     public bool Match(IWrap<string> update)
     {
         return match;

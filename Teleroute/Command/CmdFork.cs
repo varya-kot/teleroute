@@ -46,14 +46,15 @@ namespace Teleroute.Command
         /// </code>
         /// </example>
         /// </summary>
-        /// <param name="origin">Command</param>
-        /// <param name="spare">Command</param>
+        /// <param name="origin">Origin Command</param>
+        /// <param name="spare">Spare Command</param>
         public CmdFork(ICmd<U, C> origin, ICmd<U, C> spare)
         {
             this.origin = origin;
             this.spare = spare;
         }
-
+        
+        /// <inheritdoc />
         public IEnumerable<ISend<C>> Execute(U update)
         {
             IEnumerable<ISend<C>> send;

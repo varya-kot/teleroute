@@ -177,7 +177,7 @@
         <Rule Id="SA1613"  Action="Warning" />          <!-- Element parameter documentation should declare parameter name -->
         <Rule Id="SA1614"  Action="Warning" />          <!-- Element parameter documentation should have text -->
         <Rule Id="SA1615"  Action="Warning" />          <!-- Element return value should be documented -->
-        <Rule Id="SA1616"  Action="Warning" />          <!-- Element return value documentation should have text -->
+        <Rule Id="SA1616"  Action="None" />          <!-- Element return value documentation should have text -->
         <Rule Id="SA1617"  Action="Warning" />          <!-- Void return value should not be documented -->
         <Rule Id="SA1618"  Action="Warning" />          <!-- Generic type parameters should be documented -->
         <Rule Id="SA1619"  Action="Warning" />          <!-- Generic type parameters should be documented partial class -->
@@ -194,7 +194,7 @@
         <Rule Id="SA1630"  Action="None" />             <!-- Documentation text should contain whitespace -->
         <Rule Id="SA1631"  Action="None" />             <!-- Documentation should meet character percentage -->
         <Rule Id="SA1632"  Action="None" />             <!-- Documentation text should meet minimum character length -->
-        <Rule Id="SA1633"  Action="None" />             <!-- File should have header -->
+        <Rule Id="SA1633"  Action="Warning" />          <!-- File should have header -->
         <Rule Id="SA1634"  Action="None" />             <!-- File header should show copyright -->
         <Rule Id="SA1635"  Action="None" />             <!-- File header should have copyright text -->
         <Rule Id="SA1636"  Action="None" />             <!-- File header copyright text should match -->

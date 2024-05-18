@@ -49,7 +49,9 @@ namespace Teleroute.Command
         /// </summary>
         /// <param name="commands">Commands to execute</param>
         public CmdBatch(params ICmd<U, C>[] commands)
-            : this(commands.ToList()) { }
+            : this(commands.ToList())
+        {
+        }
 
         /// <summary>
         /// <example>
@@ -71,6 +73,11 @@ namespace Teleroute.Command
             this.commands = commands;
         }
 
+        /// <summary>
+        /// Execute many commands as one.
+        /// </summary>
+        /// <param name="update">Update.</param>
+        /// <returns>IEnumerable of command results</returns>
         public IEnumerable<ISend<C>> Execute(U update)
         {
             List<ISend<C>> sends = ExecuteCmds(update).ToList();
