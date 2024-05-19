@@ -39,10 +39,9 @@ public class RouteDfsTest
             new RouteDfs<string, FkClient>(
                 new RouteEnd<string, FkClient>(),
                 new RouteEnd<string, FkClient>(new FkCmd(new FkSend("test1"))),
-                new RouteEnd<string, FkClient>(new FkCmd(new FkSend("test2")))
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd(new FkSend("test1")))
-        );
+                new RouteEnd<string, FkClient>(new FkCmd(new FkSend("test2"))))
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd(new FkSend("test1"))));
     }
 
     [Test]
@@ -50,10 +49,9 @@ public class RouteDfsTest
     {
         Assert.That(
             new RouteDfs<string, FkClient>(
-                new RouteEnd<string, FkClient>(new FkCmd(new FkSend("test")))
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd(new FkSend("test")))
-        );
+                new RouteEnd<string, FkClient>(new FkCmd(new FkSend("test"))))
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd(new FkSend("test"))));
     }
 
     [Test]
@@ -61,9 +59,8 @@ public class RouteDfsTest
     {
         Assert.That(
             new RouteDfs<string, FkClient>(
-                new RouteEnd<string, FkClient>()
-            ).Route(new FkWrap()).Any(),
-            Is.False
-        );
+                new RouteEnd<string, FkClient>())
+            .Route(new FkWrap()).Any(),
+            Is.False);
     }
 }

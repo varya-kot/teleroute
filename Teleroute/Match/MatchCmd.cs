@@ -30,6 +30,7 @@ namespace Teleroute.Match
     /// <typeparam name="U">Update</typeparam>
     public sealed class MatchCmd<U> : IMatch<U>
     {
+        /// <inheritdoc />
         public bool Match(IWrap<U> update)
         {
             return update.IsCommand();

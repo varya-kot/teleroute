@@ -52,7 +52,9 @@ namespace Teleroute.Route
         /// <param name="match">Condition</param>
         /// <param name="origin">Command</param>
         public RouteFork(IMatch<U> match, ICmd<U, C> origin)
-            : this(match, new RouteEnd<U, C>(origin)) { }
+            : this(match, new RouteEnd<U, C>(origin))
+        {
+        }
 
         /// <summary>
         /// Fork between one route and empty return in case of mismatch.
@@ -70,7 +72,9 @@ namespace Teleroute.Route
         /// <param name="match">Condition</param>
         /// <param name="origin">Route</param>
         public RouteFork(IMatch<U> match, IRoute<U, C> origin)
-            : this(match, origin, new RouteEnd<U, C>()) { }
+            : this(match, origin, new RouteEnd<U, C>())
+        {
+        }
 
         /// <summary>
         /// Fork between two commands.
@@ -85,10 +89,12 @@ namespace Teleroute.Route
         /// </example>
         /// </summary>
         /// <param name="match">Condition</param>
-        /// <param name="origin">Command</param>
-        /// <param name="spare">Command</param>
+        /// <param name="origin">Origin Command</param>
+        /// <param name="spare">Spare Command</param>
         public RouteFork(IMatch<U> match, ICmd<U, C> origin, ICmd<U, C> spare)
-            : this(match, new RouteEnd<U, C>(origin), new RouteEnd<U, C>(spare)) { }
+            : this(match, new RouteEnd<U, C>(origin), new RouteEnd<U, C>(spare))
+        {
+        }
 
         /// <summary>
         /// Fork between two routes.
@@ -107,8 +113,8 @@ namespace Teleroute.Route
         /// </example>
         /// </summary>
         /// <param name="match">Condition</param>
-        /// <param name="origin">Route</param>
-        /// <param name="spare">Route</param>
+        /// <param name="origin">Origin Route</param>
+        /// <param name="spare">Spare Route</param>
         public RouteFork(IMatch<U> match, IRoute<U, C> origin, IRoute<U, C> spare)
         {
             this.match = match;
@@ -116,6 +122,7 @@ namespace Teleroute.Route
             this.spare = spare;
         }
 
+        /// <inheritdoc />
         public IEnumerable<ICmd<U, C>> Route(IWrap<U> update)
         {
             IEnumerable<ICmd<U, C>> command;
@@ -127,6 +134,7 @@ namespace Teleroute.Route
             {
                 command = spare.Route(update);
             }
+            
             return command;
         }
     }

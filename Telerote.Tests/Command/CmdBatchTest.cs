@@ -35,10 +35,9 @@ public class CmdBatchTest
     {
         Assert.That(
             new CmdBatch<string, FkClient>(
-                new FkCmdError()
-            ).Execute("test").Any(),
-            Is.False
-        );
+                new FkCmdError())
+            .Execute("test").Any(),
+            Is.False);
     }
 
     [Test]
@@ -46,10 +45,9 @@ public class CmdBatchTest
     {
         Assert.That(
             new CmdBatch<string, FkClient>(
-                new FkCmd(new FkSend())
-            ).Execute("test").Any(),
-            Is.True
-        );
+                new FkCmd(new FkSend()))
+            .Execute("test").Any(),
+            Is.True);
     }
 
     [Test]
@@ -58,7 +56,6 @@ public class CmdBatchTest
         Assert.That(
             new CmdBatch<string, FkClient>()
                 .Execute("test").Any(),
-            Is.False
-        );
+            Is.False);
     }
 }

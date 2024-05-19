@@ -39,10 +39,9 @@ public class RouteForkTest
         Assert.That(
             new RouteFork<string, FkClient>(
                 new FkMatch(true),
-                new FkCmd()
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd())
-        );
+                new FkCmd())
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd()));
     }
 
     [Test]
@@ -51,10 +50,9 @@ public class RouteForkTest
         Assert.That(
             new RouteFork<string, FkClient>(
                 new FkMatch(false),
-                new FkCmd()
-            ).Route(new FkWrap()).Any(),
-            Is.False
-        );
+                new FkCmd())
+                .Route(new FkWrap()).Any(),
+            Is.False);
     }
 
     [Test]
@@ -64,10 +62,9 @@ public class RouteForkTest
             new RouteFork<string, FkClient>(
                 new FkMatch(true),
                 new FkCmd(),
-                new FkCmd(new FkSend("test"))
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd())
-        );
+                new FkCmd(new FkSend("test")))
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd()));
     }
 
     [Test]
@@ -77,10 +74,9 @@ public class RouteForkTest
             new RouteFork<string, FkClient>(
                 new FkMatch(false),
                 new FkCmd(),
-                new FkCmd(new FkSend("test"))
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd(new FkSend("test")))
-        );
+                new FkCmd(new FkSend("test")))
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd(new FkSend("test"))));
     }
 
     [Test]
@@ -89,10 +85,9 @@ public class RouteForkTest
         Assert.That(
             new RouteFork<string, FkClient>(
                 new FkMatch(true),
-                new RouteEnd<string, FkClient>(new FkCmd())
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd())
-        );
+                new RouteEnd<string, FkClient>(new FkCmd()))
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd()));
     }
 
     [Test]
@@ -101,10 +96,9 @@ public class RouteForkTest
         Assert.That(
             new RouteFork<string, FkClient>(
                 new FkMatch(false),
-                new RouteEnd<string, FkClient>(new FkCmd())
-            ).Route(new FkWrap()).Any(),
-            Is.False
-        );
+                new RouteEnd<string, FkClient>(new FkCmd()))
+            .Route(new FkWrap()).Any(),
+            Is.False);
     }
 
     [Test]
@@ -115,11 +109,9 @@ public class RouteForkTest
                 new FkMatch(true),
                 new RouteEnd<string, FkClient>(new FkCmd()),
                 new RouteEnd<string, FkClient>(
-                    new FkCmd(new FkSend("test"))
-                )
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd())
-        );
+                    new FkCmd(new FkSend("test"))))
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd()));
     }
 
     [Test]
@@ -130,10 +122,8 @@ public class RouteForkTest
                 new FkMatch(false),
                 new RouteEnd<string, FkClient>(new FkCmd()),
                 new RouteEnd<string, FkClient>(
-                    new FkCmd(new FkSend("test"))
-                )
-            ).Route(new FkWrap()).Single(),
-            Is.EqualTo(new FkCmd(new FkSend("test")))
-        );
+                    new FkCmd(new FkSend("test"))))
+            .Route(new FkWrap()).Single(),
+            Is.EqualTo(new FkCmd(new FkSend("test"))));
     }
 }

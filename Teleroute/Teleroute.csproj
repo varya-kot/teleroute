@@ -3,6 +3,17 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
+        
+        <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\stylecop.ruleset" Link="stylecop.ruleset" />
+      <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
+    </ItemGroup>
 </Project>

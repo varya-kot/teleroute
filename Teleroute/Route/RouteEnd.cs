@@ -40,7 +40,9 @@ namespace Teleroute.Route
         /// Creates route that provide nothing.
         /// </summary>
         public RouteEnd()
-            : this(Enumerable.Empty<ICmd<U, C>>()) { }
+            : this(Enumerable.Empty<ICmd<U, C>>())
+        {
+        }
 
         /// <summary>
         /// Creates route that provide one command.
@@ -54,13 +56,16 @@ namespace Teleroute.Route
         /// </summary>
         /// <param name="command">Command</param>
         public RouteEnd(ICmd<U, C> command)
-            : this(new List<ICmd<U, C>>(1) { command }) { }
+            : this(new List<ICmd<U, C>>(1) { command })
+        {
+        }
 
         private RouteEnd(IEnumerable<ICmd<U, C>> command)
         {
             this.command = command;
         }
 
+        /// <inheritdoc />
         public IEnumerable<ICmd<U, C>> Route(IWrap<U> update)
         {
             return command;
